@@ -3,35 +3,44 @@
 <head>
   <title>PassionBox</title>
   <%= stylesheet_link_tag "twitbootstrap", "style", "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "bootstrap-dropdown" %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 </head>
 <body>
   <div class="container">
 
-    <div class="topbar">
+    <div class="topbar" id="topbar">
       <div class="topbar-inner">
         <div class="container">
-          <h3><%= link_to 'PassionBox', root_path %></h3>
-          <ul class="nav">
-            <% if current_user %>
-            <li class="active"><%= link_to 'Dashboard', '#' %></li>
-            <li><%= link_to 'View Profile', user_path(current_user) %></li>
-            <li><%#= link_to 'Create Item', new_item_path %></li>
-            <li><%= link_to 'Items', items_path %></li>
-            
-            <% if current_user.curator? %>
-            <li><%= link_to 'Curator Stuff', templates_path %></li>
-            <% end %>
-            <% if current_user.admin? %>
-            <li><%= link_to 'Admin Stuff', categories_path %></li>
-            <% end %>
-            <li><%= link_to 'Sign Out', signout_path %></li>
-            <% else %>
-            <li><%= link_to 'Twitter Sign In', "auth/twitter" %></li>
-            <li><%= link_to 'Facebook Sign In', "auth/facebook" %></li>
-            <% end %>
-          </ul>
+          <h3><%= link_to image_tag('logo.png', :height => '35px'), root_path %></h3>
+          <div class="pull-right">
+            <ul class="nav">
+              <% if current_user %>
+              <li><%= link_to 'My Profile', user_path(current_user) %></li>
+              <li class="dropdown" data-dropdown="dropdown">
+                <a href="#" class="dropdown-toggle">My Collections</a>
+                <ul class="dropdown-menu">
+                  <% current_user.boxes.each do |box| %>
+                    <li><%= link_to box.name, box %>
+                  <% end %>
+                  <li class="divider"></li>
+                  <li><%= link_to 'New Collection', categories_path %></li>
+                </ul>
+              </li>
+              <% if current_user.curator? %>
+              <li><%= link_to 'Curator Stuff', templates_path %></li>
+              <% end %>
+              <% if current_user.admin? %>
+              <li><%= link_to 'Admin Stuff', categories_path %></li>
+              <% end %>
+              <li><%= link_to 'Sign Out', signout_path %></li>
+              <% else %>
+              <li><%= link_to image_tag('twitter_signin.png'), "auth/twitter" %></li>
+              <li><%= link_to image_tag('facebook_signin.png'), "auth/facebook" %></li>
+              <% end %>
+            </ul>
+        </div>
         </div>
       </div>
     </div>
@@ -41,5 +50,9 @@
       <%= yield %>
     </div>
   </div>
+  <%= yield :javascripts %>
+  <script type="text/javascript">
+    $('#topbar').dropdown();
+  </script>
 </body>
 </html>

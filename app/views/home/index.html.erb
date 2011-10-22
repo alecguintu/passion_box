@@ -1,16 +1,101 @@
-<!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero-unit">
-  <h2>Passion Box</h2>
-  <p>Catalog, showcase and trade your collection online and share it to a worldwide audience. </p>
-  <p><a class="btn primary large">Learn more &raquo;</a></p>
+<%= content_for :head do %>
+  <%= javascript_include_tag 's3slider' %>
+  <style type="text/css">
+    #s3slider { 
+       width: 940px; /* important to be same as image width */ 
+       height: 300px; /* important to be same as image height */
+       position: relative; /* important */
+       overflow: hidden; /* important */
+    }
+
+    #s3sliderContent {
+       width: 940px; /* important to be same as image width or wider */
+       position: absolute; /* important */
+       top: 0; /* important */
+       margin-left: 0; /* important */
+    }
+
+    .s3sliderImage {
+       float: left; /* important */
+       position: relative; /* important */
+       display: none; /* important */
+    }
+
+    .s3sliderImage span {
+       position: absolute; /* important */
+       left: 0;
+       font: 10px/15px Arial, Helvetica, sans-serif;
+       padding: 10px 13px;
+       width: 374px;
+       background-color: #000;
+       filter: alpha(opacity=70); /* here you can set the opacity of box with text */
+       -moz-opacity: 0.7; /* here you can set the opacity of box with text */
+       -khtml-opacity: 0.7; /* here you can set the opacity of box with text */
+       opacity: 0.7; /* here you can set the opacity of box with text */
+       color: #fff;
+       display: none; /* important */
+       top: 0;
+
+       /*
+           if you put
+           top: 0; -> the box with text will be shown at the top of the image 
+           if you put
+           bottom: 0; -> the box with text will be shown at the bottom of the image
+       */
+    }
+
+    .clear {
+       clear: both;
+    }
+  </style>
+<% end %>
+
+<div class="row">
+  <div class="span16" style="background-color: #fff;">
+  <div id="s3slider">
+    <ul id="s3sliderContent">
+      <li class="s3sliderImage">
+        <img src="http://lorempixel.com/940/300/technics/1" />
+        <span>Your text comes here</span>
+      </li>
+      <li class="s3sliderImage">
+        <img src="http://lorempixel.com/940/300/technics/2" />
+        <span>Your text comes here</span>
+      </li>
+      <li class="s3sliderImage">
+        <img src="http://lorempixel.com/940/300/technics/3" />
+        <span>Your text comes here</span>
+      </li>
+      <li class="s3sliderImage">
+        <img src="http://lorempixel.com/940/300/technics/4" />
+        <span>Your text comes here</span>
+      </li>
+
+      <div class="clear s3sliderImage"></div>
+    </ul>
+  </div>
+</div>
 </div>
 
 <div class="row">
   <div class="span8">
     <h3>Collectors</h3>
-    <p>Lorem ipsum dolor sit amet</p>
+    <p>Are you a collector looking to showcase your collection online? PassionBox is a great way to catalog your collection and create a global network of information on collectible items on the internet. Share, socialize, and TRADE with other collectors to complete your own collections! PassionBox is the ultimate tool for geeks like you!</p>
+    <a href="#" class="btn large primary">Learn More</a>
   </div>
   <div class="span8">
     <h3>Become a Curator!</h3>
+    <p>PassionBox wants experts like YOU to help organize catalog data. You can help by curating specific categories and defining the international standard for cataloging these types of collections. Are you up for the challenge?</p>
+    <a href="#" class="btn large primary">Learn More</a>
   </div>
 </div>
+
+<%= content_for :javascripts do %>
+  <script type="text/javascript">
+    $(document).ready(function() { 
+       $('#s3slider').s3Slider({ 
+          timeOut: 4000 
+       });
+    });
+  </script>
+<% end %>

@@ -1,6 +1,11 @@
-<h1>Categories</h1>
-<%= link_to 'Create', new_category_path %><br><br>
-
-<% @categories.each do |c| %>
-  <%= c.name %><br>
-<% end %>
+<h1>Select a category</h1>
+<div class="row">
+  <div class="span16">
+    <ul class="media-grid">
+      <% @categories.each do |c| %>
+        <li><%= link_to image_tag(c.image, :width => '210', :title => c.name), new_box_path(:category_id => c.id) %></li>
+      <% end %>
+    </ul>
+    Or <%= link_to 'Create your own', '#' %>
+  </div>
+</div>

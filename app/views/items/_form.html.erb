@@ -16,19 +16,15 @@
       <%= f.text_field :tags %>
     </div>
   </div>
-  
-  <h4>Global Fields</h4>
   <% @template.global_fields.each do |gf| %>
     <div class="clearfix">
-      <label for="<%= "item_#{gf}" %>"><%= gf %></label>
+      <label for="<%= "item_#{gf}" %>"><%= gf.humanize %></label>
       <div class="input"><%= text_field_tag "item[#{gf}]" %></div>
     </div>
   <% end %>
-  
-  <h4>User Fields</h4>
   <% @template.user_fields.each do |uf| %>
     <div class="clearfix">
-      <label for="<%= "user_item_#{uf}" %>"><%= uf %></label>
+      <label for="<%= "user_item_#{uf}" %>"><%= uf.humanize %></label>
       <div class="input"><%= text_field_tag "user_item[#{uf}]", (eval("@item.#{uf}") unless @item.new?) %></div>
     </div>
   <% end %>

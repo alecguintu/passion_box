@@ -1,16 +1,17 @@
 class BoxesController < ApplicationController
   def index
-    @boxes = current_user.box
+    @boxes = current_user.boxes
   end
 
   def new
     @box = Box.new
+    @box.category = Category.find(params[:category_id])
   end
 
   def create
     @box = current_user.boxes.new(params[:box])
     if @box.save
-      redirect_to user_path(current_user), :success => "Successfully created collection."
+      redirect_to edit_box_path(@box), :success => "Successfully created collection."
     else
       render :new
     end
@@ -18,11 +19,11 @@ class BoxesController < ApplicationController
 
   def show
     @box = current_user.boxes.where(:_id => params[:id]).first
-    @box_items = @box.user_items unless @box.nil?
   end
   
   def edit
     @box = Box.find(params[:id])
+    @box_items = @box.user_items unless @box.nil?
   end
 
   def update
@@ -33,8 +34,14 @@ class BoxesController < ApplicationController
       render :edit
     end
   end
-
+ 
   def destroy
+  end
+
+  def gallery
+    respond_to do |r|
+      r.xml
+    end
   end
 
 end

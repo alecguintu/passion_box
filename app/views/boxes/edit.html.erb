@@ -1,5 +1,14 @@
-<h1>Edit Collection</h1>
+<h2>Editing <%= @box.name %></h2>
 
-<%= form_for @box, :url => box_path(@box) do |f| %>
-  <%= render :partial => 'form', :locals => {:f => f} %>
+<p>Category : <%= @box.category.name unless @box.category.nil? %></p>
+
+<% unless @box_items.blank? %>
+  <h3>Items</h3>
+  <% for item in @box_items %>
+    <ul>
+      <li><%= item.title %></li>
+    </ul>
+  <% end %>
 <% end %>
+
+<p><%= link_to "Add an Item", new_item_path(:id => @box.id) %></p>

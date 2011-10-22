@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
         Item.create(params[:item].merge(params[:user_item]))
       end
       
-      redirect_to box_path(@box)
+      redirect_to edit_box_path(@box)
     else
       render :new
     end
