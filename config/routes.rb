@@ -6,14 +6,12 @@ PassionBox::Application.routes.draw do
   resources :users, :only => [ :show, :edit, :update ]
 
   match '/auth/:provider/callback' => 'sessions#create'
-
   match '/signin' => 'sessions#new', :as => :signin
-
   match '/signout' => 'sessions#destroy', :as => :signout
-
   match '/auth/failure' => 'sessions#failure'
 
   resources :collections
+  resources :items
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
