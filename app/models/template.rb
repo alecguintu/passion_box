@@ -14,4 +14,12 @@ class Template
   def user_fields=(_user_fields)
     write_attribute(:user_fields, _user_fields.split(',').collect{|t| t.strip})
   end
+  
+  def global_fields_to_s
+    self.global_fields.join(', ') unless self.global_fields.blank?
+  end
+  
+  def user_fields_to_s
+    self.user_fields.join(', ') unless self.user_fields.blank?
+  end
 end

@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
     @items = UserItem.all
   end
 
+  def show
+    @item = UserItem.find(params[:id])
+  end
+
   def new
     @item = UserItem.new
     @box = Box.find(params[:id])
@@ -36,6 +40,12 @@ class ItemsController < ApplicationController
   def update
     @item = UserItem.find(params[:id])
     if @item.update_attributes(params[:user_item])
+      
+      @global_item = Item.where(:title => @item.title).first
+      unless @global_item
+        Item.create(params[:item].merge(params[:user_item]))
+      end
+      
       redirect_to items_path
     else
       render :edit

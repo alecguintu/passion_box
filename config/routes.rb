@@ -17,6 +17,8 @@ PassionBox::Application.routes.draw do
       get :gallery
     end
   end
+  match 'boxes/my_boxes' => 'boxes#my_boxes', :via =>:get, :as => :my_boxes
+  
   resources :categories
   resources :templates
   # The priority is based upon order of creation:
