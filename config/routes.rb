@@ -1,6 +1,9 @@
 PassionBox::Application.routes.draw do
   root :to => "home#index"
 
+  match 'users/apply_user' => 'users#change_role', :via => :post, :as => :change_to_user, :role => User::USER
+  match 'users/apply_curator' => 'users#change_role', :via => :post, :as => :change_to_curator, :role => User::CURATOR
+  match 'users/apply_admin' => 'users#change_role', :via => :post, :as => :change_to_admin, :role => User::ADMIN
   resources :users, :only => [ :show, :edit, :update ]
 
   match '/auth/:provider/callback' => 'sessions#create'
