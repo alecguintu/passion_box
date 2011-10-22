@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>PassionBox</title>
-  <%= stylesheet_link_tag    "twitbootstrap", "application" %>
+  <%= stylesheet_link_tag "twitbootstrap", "style", "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -19,6 +19,13 @@
             <li><%= link_to 'View Profile', user_path(current_user) %></li>
             <li><%#= link_to 'Create Item', new_item_path %></li>
             <li><%= link_to 'Items', items_path %></li>
+            
+            <% if current_user.curator? %>
+            <li><%= link_to 'Curator Stuff', templates_path %></li>
+            <% end %>
+            <% if current_user.admin? %>
+            <li><%= link_to 'Admin Stuff', categories_path %></li>
+            <% end %>
             <li><%= link_to 'Sign Out', signout_path %></li>
             <% else %>
             <li><%= link_to 'Twitter Sign In', "auth/twitter" %></li>
@@ -30,6 +37,7 @@
     </div>
 
     <div id="content">
+      <%= flash_helper %>
       <%= yield %>
     </div>
   </div>

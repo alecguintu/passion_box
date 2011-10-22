@@ -1,6 +1,12 @@
 <h2>User</h2>
 <p>User: <%= @user.name %></p>
+<p>Role: <%= @user.role %></p>
 <p>Email: <%= @user.email unless @user.email.nil? %></p>
+<p>
+  <%= link_to 'Revert to User', change_to_user_path, :class => 'btn', :method => :post unless @user.user? %>
+  <%= link_to 'Apply as Curator', change_to_curator_path, :class => 'btn success', :method => :post unless @user.curator? %>
+  <%= link_to 'Apply as Admin', change_to_admin_path, :class => 'btn danger', :method => :post unless @user.admin? %>
+</p>
 
 <% if @user.boxes %>
   <h2>Collections</h2>

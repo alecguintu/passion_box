@@ -1,0 +1,16 @@
+<h1>Create new Category</h1>
+
+<%= form_for @category do |f| %>
+  <fieldset>
+    <div class="clearfix">
+      <%= f.label :name %>
+      <div class="input">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Submit', :class => 'btn primary' %>
+      <%= link_to 'Cancel', categories_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

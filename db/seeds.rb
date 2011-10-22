@@ -7,3 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts 'EMPTY THE MONGODB DATABASE'
 Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
+
+Category.create(:name => 'Music')
+Category.create(:name => 'Comics')
+Category.create(:name => 'Cars')
+Category.create(:name => 'Toys')
