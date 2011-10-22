@@ -10,7 +10,7 @@ class BoxesController < ApplicationController
   def create
     @box = current_user.boxes.new(params[:box])
     if @box.save
-      redirect_to user_path(current_user), :notice => "Successfully created collection."
+      redirect_to user_path(current_user), :success => "Successfully created collection."
     else
       render :new
     end
