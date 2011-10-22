@@ -13,7 +13,7 @@
     <div class="topbar">
       <div class="topbar-inner">
         <div class="container">
-          <h3 style="float:left"><%= link_to 'PassionBox', root_path %></h3>
+          <h3><%= link_to 'PassionBox', root_path %></h3>
           <ul class="nav">
             <% if current_user %>
             <li class="active"><%= link_to 'Dashboard', '#' %></li>
@@ -28,7 +28,9 @@
       </div>
     </div>
 
-    <%= yield %>
+    <div id="content">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
