@@ -6,9 +6,9 @@
   <h3>Items</h3>
   <% for item in @box_items %>
     <ul>
-      <li><%= item.title %></li>
+      <li><%= link_to item.title, item_path(item) %></li>
     </ul>
   <% end %>
 <% end %>
 
-<p><%= link_to "Create New Item", new_item_path(:id => @box.id) %></p>
+<p><%= link_to "Add an Item", new_item_path(:id => @box.id) %></p>

@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
     @items = UserItem.all
   end
 
+  def show
+    @item = UserItem.find(params[:id])
+  end
+
   def new
     @item = UserItem.new
     @box = Box.find(params[:id])

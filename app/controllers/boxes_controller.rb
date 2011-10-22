@@ -1,6 +1,8 @@
 class BoxesController < ApplicationController
   def index
-    @boxes = current_user.box
+  end
+  
+  def my_boxes
   end
 
   def new

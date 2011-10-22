@@ -8,13 +8,13 @@
   <div class="clearfix">
     <%= f.label :global_fields %>
     <div class="input">
-      <%= f.text_field :global_fields %>
+      <%= f.text_field :global_fields, :value => @template.global_fields_to_s %>
     </div>
   </div>
   <div class="clearfix">
     <%= f.label :user_fields %>
     <div class="input">
-      <%= f.text_field :user_fields %>
+      <%= f.text_field :user_fields, :value => @template.user_fields_to_s %>
     </div>
   </div>
   <div class="actions">

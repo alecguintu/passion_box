@@ -7,13 +7,3 @@
   <%= link_to 'Apply as Curator', change_to_curator_path, :class => 'btn success', :method => :post unless @user.curator? %>
   <%= link_to 'Apply as Admin', change_to_admin_path, :class => 'btn danger', :method => :post unless @user.admin? %>
 </p>
-
-<% if @user.boxes %>
-  <h2>Collections</h2>
-  <% for box in @user.boxes %>
-    <ul>
-      <li><%= link_to "#{box.name}", box_path(box) %> - <%= link_to 'Edit', edit_box_path(box) if current_user %></li>
-    </ul>
-  <% end %>
-<% end %>
-<p><%= link_to "Create Collection", new_box_path %><p>

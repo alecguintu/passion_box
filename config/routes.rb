@@ -12,6 +12,8 @@ PassionBox::Application.routes.draw do
   match '/auth/failure' => 'sessions#failure'
   
   resources :items
+  
+  match 'boxes/my_boxes' => 'boxes#my_boxes', :via =>:get, :as => :my_boxes
   resources :boxes
   
   resources :categories
