@@ -8,8 +8,7 @@ class BoxController < ApplicationController
   end
 
   def create
-    @box = Box.new(params[:box])
-    @box.user_id = current_user.id
+    @box = current_user.boxes.new(params[:box])
     if @box.save
       redirect_to user_path(current_user), :notice => "Successfully created collection."
     else

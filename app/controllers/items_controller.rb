@@ -8,8 +8,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = UserItem.new(params[:user_item])
-    @item.user_id = current_user.id
+    @box = current_user.boxes.find(params[:id])
+    @item = @box.user_items.new(params[:user_item])
     if @item.save
       redirect_to items_path
     else
