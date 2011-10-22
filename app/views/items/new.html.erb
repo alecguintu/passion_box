@@ -1,0 +1,14 @@
+<h1>Items</h1>
+
+<%= form_for @item, :url => items_path(@item) do |f| %>
+
+  <%#= error.messages %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  
+  <%= f.submit 'Submit' %>
+<% end %>
