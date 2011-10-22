@@ -6,6 +6,6 @@ class Item
   field :tags, :type => Array
   
   def tags=(_tags)
-    write_attribute(:tags, _tags.split(',').collect{|t| t.strip!})
+    write_attribute(:tags, _tags.split(',').collect{|t| t.strip})
   end
 end

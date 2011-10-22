@@ -1,0 +1,10 @@
+<h1>Template</h1>
+
+<% @templates.each do |t| %>
+  <%= t.user.name %> |
+  <%= t.category.name %> |
+  <%= t.global_fields.join(', ') %> |
+  <%= t.user_fields.join(', ') %> |
+  <%= link_to 'Edit', edit_template_path(t) %>
+<% end %>
+<br><%= link_to 'Create', new_template_path %>

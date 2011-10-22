@@ -21,7 +21,7 @@
             <li><%= link_to 'Items', items_path %></li>
             
             <% if current_user.curator? %>
-            <li><%= link_to 'Curator Stuff', '#' %></li>
+            <li><%= link_to 'Curator Stuff', templates_path %></li>
             <% end %>
             <% if current_user.admin? %>
             <li><%= link_to 'Admin Stuff', categories_path %></li>

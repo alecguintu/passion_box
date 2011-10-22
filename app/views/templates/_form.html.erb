@@ -1,0 +1,24 @@
+<fieldset>
+  <div class="clearfix">
+    <%= f.label :category %>
+    <div class="input">
+      <%= select :template, :category_id, Category.order_by(:name).all.collect {|c| [c.name, c.id]} %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :global_fields %>
+    <div class="input">
+      <%= f.text_field :global_fields %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :user_fields %>
+    <div class="input">
+      <%= f.text_field :user_fields %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Submit', :class => 'btn primary' %>
+    <%= link_to 'Cancel', templates_path, :class => 'btn' %>
+  </div>
+</fieldset>
