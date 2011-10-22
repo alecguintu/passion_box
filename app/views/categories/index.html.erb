@@ -2,5 +2,8 @@
 <%= link_to 'Create', new_category_path %><br><br>
 
 <% @categories.each do |c| %>
-  <%= c.name %><br>
+  <%= c.name %> |
+  <%= link_to 'Edit', edit_category_path(c) %> |
+  <%= link_to 'Delete', category_path(c), :method => :delete, :confirm => 'yousure?' %>
+  <br>
 <% end %>

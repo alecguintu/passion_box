@@ -1,0 +1,10 @@
+<h1>My Collections</h1>
+<% if current_user.boxes %>
+  <h2>Collections</h2>
+  <% current_user.boxes.each do |box| %>
+    <ul>
+      <li><%= link_to "#{box.name}", box_path(box) %> | <%= link_to 'Edit', edit_box_path(box) %> | <%= link_to "Add an Item", new_item_path(:id => box.id) %></li>
+    </ul>
+  <% end %>
+<% end %>
+<p><%= link_to "Create Collection", new_box_path %><p>
