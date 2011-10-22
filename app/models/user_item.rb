@@ -3,12 +3,17 @@ class UserItem
   
   field :title
   field :description
+  field :tags, :type => Array
   
   validates_presence_of :title
   
   belongs_to :user
   
   after_save :save_to_global_item
+  
+  def tags=(_tags)
+    write_attribute(:tags, _tags.split(',').collect{|t| t.strip})
+  end
   
   private
   

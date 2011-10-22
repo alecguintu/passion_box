@@ -1,2 +1,5 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<h1>Edit Items</h1>
+
+<%= form_for @item, :url => item_path(@item) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+<% end %>

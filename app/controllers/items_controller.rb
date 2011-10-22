@@ -18,9 +18,16 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = UserItem.find(params[:id])
   end
 
   def update
+    @item = UserItem.find(params[:id])
+    if @item.update_attributes(params[:user_item])
+      redirect_to edit_item_path(@item)
+    else
+      render :edit
+    end
   end
 
   def destroy
