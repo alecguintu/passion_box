@@ -4,6 +4,7 @@ class UserItem
   field :title
   field :description
   field :tags, :type => Array
+  field :image
   
   validates_presence_of :title
   

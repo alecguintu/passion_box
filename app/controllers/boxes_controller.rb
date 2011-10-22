@@ -49,6 +49,8 @@ class BoxesController < ApplicationController
   end
 
   def gallery
+    @box = Box.find(params[:id])
+    @template = @box.category.template
     respond_to do |r|
       r.xml
     end

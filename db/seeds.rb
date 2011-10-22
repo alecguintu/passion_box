@@ -34,3 +34,22 @@ Template.create(:category => @c10, :global_fields => "artist, release_date", :us
 Template.create(:category => @c11, :global_fields => "artist, release_date", :user_fields => "bought_from", :user => @user)
 @c12 = Category.create(:name => 'Coke Memorabilla', :image => 'coke.jpg')
 Template.create(:category => @c12, :global_fields => "artist, release_date", :user_fields => "bought_from", :user => @user)
+
+@box = Box.create(:user => @user, :category => @c2, :name => 'My Comics')
+
+UserItem.create(
+  :box => @box,
+  :category_id => @c2.id,
+  :title => 'Detective Comics #1',
+  :description => 'First appearance',
+  :tags => 'batman, dc',
+  :artist => 'Stan Lee',
+  :release_date => '1937',
+  :publisher => 'Action Comics',
+  :issue_number => '#1',
+  :writer => 'Jim Lee',
+  :character => 'Batman',
+  :condition => 'Mint',
+  :variant => 'First edition',
+  :image => 'Detective_Comics_1.jpg'
+)

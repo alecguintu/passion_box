@@ -9,7 +9,5 @@ class Box
   belongs_to  :user
   has_many    :user_items
   
-  attr_accessible :name, :category_id
-  
   validates_presence_of :name
 end

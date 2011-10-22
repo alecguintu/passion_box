@@ -1,117 +1,16 @@
 <tiltviewergallery>
-	<photos>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-		<photo imageurl="/assets/action-comics-number-1.jpg" linkurl="http://www.google.com">
-			<title>Image 1</title>
-			<description>This is a regular text description.</description>
-		</photo>
-
+  <photos>
+    <%= @box.user_items.each do |item| %>
+      <% global_item = Item.where(:title => item.title).first %>
+      <photo imageurl="<%= image_path(item.image) %>" linkurl="<%= item_path(global_item) %>">
+      <title><%= item.title %></title>
+      <description><![CDATA[
+        <% @template.global_fields.each do |gf| %>
+          <%= gf.humanize %>:<%= eval("item.#{gf}") %>
+        <% end %>
+        ]]>
+      </description>
+    </photo>
+    <% end %>
   </photos>
 </tiltviewergallery>
