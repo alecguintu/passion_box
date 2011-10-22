@@ -1,4 +1,5 @@
 PassionBox::Application.routes.draw do
+
   root :to => "home#index"
 
   resources :users, :only => [ :show, :edit, :update ]
@@ -12,6 +13,7 @@ PassionBox::Application.routes.draw do
   match '/auth/failure' => 'sessions#failure'
   
   resources :items
+  resources :box
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
