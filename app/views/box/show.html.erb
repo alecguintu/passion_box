@@ -1,4 +1,13 @@
 <h2><%= @box.name %></h2>
-<p><%= @box.category %></p>
 
+<p>Category : <%= @box.category %></p>
+
+<% unless @box_items.blank? %>
+  <h3>Items</h3>
+  <% for item in @box_items %>
+    <ul>
+      <li><%= item.title %></li>
+    </ul>
+  <% end %>
+<% end %>
 <p><%= link_to "Create New Item", new_item_path(:id => @box.id, :name => @box.name) %></p>

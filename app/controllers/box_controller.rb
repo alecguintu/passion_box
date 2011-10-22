@@ -17,7 +17,8 @@ class BoxController < ApplicationController
   end
 
   def show
-    @box = Box.where(:id => params[:box]).first
+    @box = current_user.boxes.where(:_id => params[:id]).first
+    @box_items = @box.user_items unless @box.nil?
   end
   
   def edit
