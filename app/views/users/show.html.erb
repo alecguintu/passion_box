@@ -1,0 +1,13 @@
+<h2>User</h2>
+<p>User: <%= @user.name %></p>
+<p>Email: <%= @user.email unless @user.email.nil? %></p>
+
+<% if @user.boxes %>
+  <h2>Collections</h2>
+  <% for box in @user.boxes %>
+    <ul>
+      <li><%= link_to "#{box.name}", box_path(box) %></li>
+    </ul>
+  <% end %>
+<% end %>
+<p><%= link_to "Create Collection", new_box_path %><p>

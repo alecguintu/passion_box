@@ -5,4 +5,4 @@ class Collection
   field :category, :type => String
     
   attr_accessible :name, 
- end
+end
