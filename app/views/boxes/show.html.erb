@@ -1,6 +1,6 @@
 <h2><%= @box.name %></h2>
 
-<p>Category : <%= @box.category.name %></p>
+<p>Category : <%= @box.category.name unless @box.category.nil? %></p>
 
 <% unless @box_items.blank? %>
   <h3>Items</h3>
