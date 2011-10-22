@@ -1,13 +1,17 @@
 class User
   include Mongoid::Document
+  ROLES = ['User', 'Curator', 'Admin']
+  USER, CURATOR, ADMIN = ROLES
+  
   field :provider, :type => String
   field :uid, :type => String
   field :name, :type => String
   field :email, :type => String
+  field :role, :type => String, :default => USER
   attr_accessible :provider, :uid, :name, :email
   
   has_many :boxes
-
+  
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
@@ -23,6 +27,16 @@ class User
       end
     end
   end
-
+  
+  def user?
+    self.role == User::USER
+  end
+  
+  def curator?
+    self.role == User::CURATOR
+  end
+  
+  def admin?
+    self.role == User::ADMIN
+  end
 end
-
