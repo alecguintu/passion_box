@@ -5,12 +5,21 @@ class ItemsController < ApplicationController
 
   def new
     @item = UserItem.new
+    @box = Box.find(params[:id])
+    
+    @template = @box.category.template
   end
 
   def create
     @box = Box.find(params[:box_id])
     @item = @box.user_items.new(params[:user_item])
     if @item.save
+      
+      @global_item = Item.where(:title => @item.title).first
+      unless @global_item
+        Item.create(params[:item].merge(params[:user_item]))
+      end
+      
       redirect_to box_path(@box)
     else
       render :new
@@ -19,6 +28,9 @@ class ItemsController < ApplicationController
 
   def edit
     @item = UserItem.find(params[:id])
+    
+    @box = @item.box
+    @template = @box.category.template
   end
 
   def update
@@ -33,7 +45,6 @@ class ItemsController < ApplicationController
   def destroy
     @item = UserItem.find(params[:id])
     @item.destroy
-      redirect_to items_path
-    end
-
+    redirect_to items_path
+  end
 end
