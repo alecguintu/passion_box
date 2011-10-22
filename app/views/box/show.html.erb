@@ -1,0 +1,4 @@
+<h2><%= @box.name %></h2>
+<p><%= @box.category %></p>
+
+<p><%= link_to "Create New Item", new_item_path(:id => @box.id, :name => @box.name) %></p>

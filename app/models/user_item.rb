@@ -7,7 +7,7 @@ class UserItem
   
   validates_presence_of :title
   
-  belongs_to :user
+  belongs_to :box
   
   after_save :save_to_global_item
   

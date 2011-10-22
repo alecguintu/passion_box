@@ -1,0 +1,8 @@
+<h2>New Collection</h2>
+<%= form_for @box, :url => box_index_path(@box) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br/>
+  <%= f.label :category %>
+  <%= f.text_field :category %><br/>
+  <%= f.submit "Submit" %>
+<% end %>
