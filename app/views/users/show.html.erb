@@ -6,7 +6,7 @@
   <h2>Collections</h2>
   <% for box in @user.boxes %>
     <ul>
-      <li><%= link_to "#{box.name}", box_path(box) %></li>
+      <li><%= link_to "#{box.name}", box_path(box) %> - <%= link_to 'Edit', edit_box_path(box) if current_user %></li>
     </ul>
   <% end %>
 <% end %>

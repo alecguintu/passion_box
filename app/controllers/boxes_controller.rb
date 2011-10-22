@@ -22,9 +22,16 @@ class BoxesController < ApplicationController
   end
   
   def edit
+    @box = Box.find(params[:id])
   end
 
   def update
+    @box = Box.find(params[:id])
+    if @box.update_attributes(params[:box])
+      redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def destroy
