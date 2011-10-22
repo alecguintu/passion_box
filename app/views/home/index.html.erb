@@ -1,0 +1,11 @@
+<% if current_user %>
+  <h3>Home</h3>
+  <%= link_to 'Sign Out', signout_path %>
+  <% @users.each do |user| %>
+    <p>User: <%= user.name %></p>
+  <% end %>
+<% else %>
+  <%= link_to 'Sign In', signin_path %>
+<% end %>
+
+
