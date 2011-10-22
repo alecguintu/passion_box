@@ -1,9 +1,19 @@
 <h1>Categories</h1>
-<%= link_to 'Create', new_category_path %><br><br>
+<p><%= link_to 'Create new Category', new_category_path %></p>
 
-<% @categories.each do |c| %>
-  <%= c.name %> |
-  <%= link_to 'Edit', edit_category_path(c) %> |
-  <%= link_to 'Delete', category_path(c), :method => :delete, :confirm => 'yousure?' %>
-  <br>
-<% end %>
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @categories.each do |c| %>
+    <tr>
+      <td><%= c.name %></td>
+      <td><%= link_to 'Edit', edit_category_path(c) %> | <%= link_to 'Delete', category_path(c), :method => :delete, :confirm => 'yousure?' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

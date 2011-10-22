@@ -1,10 +1,25 @@
 <h1>Template</h1>
+<p><%= link_to 'Create new Template', new_template_path %></p>
 
-<% @templates.each do |t| %>
-  <%= t.user.name %> |
-  <%= t.category.name %> |
-  <%= t.global_fields.join(', ') %> |
-  <%= t.user_fields.join(', ') %> |
-  <%= link_to 'Edit', edit_template_path(t) %>
-<% end %>
-<br><%= link_to 'Create', new_template_path %>
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Category</th>
+      <th>Global Fields</th>
+      <th>User Fields</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @templates.each do |t| %>
+    <tr>
+      <td><%= t.user.name %></td>
+      <td><%= t.category.name %></td>
+      <td><%= t.global_fields.join(', ') %></td>
+      <td><%= t.user_fields.join(', ') %></td>
+      <td><%= link_to 'Edit', edit_template_path(t) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
