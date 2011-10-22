@@ -5,10 +5,11 @@ class Box
   field :name, :type => String
   field :category, :type => String
   
+  belongs_to  :category
   belongs_to  :user
   has_many    :user_items
   
-  attr_accessible :name, :category
+  attr_accessible :name, :category_id
   
   validates_presence_of :name
 end

@@ -8,7 +8,7 @@
   <div class="clearfix">
     <%= f.label :collection %>
     <div class="input">
-      <%= select :item, :box_id, Box.all.collect {|b| [b.name, b.id]} %>
+      <%= select :item, :box_id, Box.order_by(:name).all.collect {|b| [b.name, b.id]} %>
     </div>
     
   </div>
