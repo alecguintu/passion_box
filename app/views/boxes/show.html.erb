@@ -4,9 +4,11 @@
 
 <% unless @box_items.blank? %>
   <h3>Items</h3>
-  <% for item in @box_items %>
+  <% @box_items.each do |item| %>
     <ul>
-      <li><%= link_to item.title, item_path(item) %></li>
+      <li><%= item.title %> |
+      <%= link_to 'Edit', edit_item_path(item) %> |
+      <%= link_to '(delete)', item_path(item), :method => :delete, :confirm => "yousure?" %></li>
     </ul>
   <% end %>
 <% end %>

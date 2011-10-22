@@ -4,6 +4,11 @@ class BoxesController < ApplicationController
   
   def my_boxes
   end
+  
+  def show
+    @box = current_user.boxes.where(:_id => params[:id]).first
+    @box_items = @box.user_items unless @box.nil?
+  end
 
   def new
     @box = Box.new
@@ -12,15 +17,11 @@ class BoxesController < ApplicationController
   def create
     @box = current_user.boxes.new(params[:box])
     if @box.save
-      redirect_to user_path(current_user), :success => "Successfully created collection."
+      flash[:success] = 'Collection created yeah!'
+      redirect_to my_boxes_path
     else
       render :new
     end
-  end
-
-  def show
-    @box = current_user.boxes.where(:_id => params[:id]).first
-    @box_items = @box.user_items unless @box.nil?
   end
   
   def edit
@@ -30,7 +31,8 @@ class BoxesController < ApplicationController
   def update
     @box = Box.find(params[:id])
     if @box.update_attributes(params[:box])
-      redirect_to user_path(current_user)
+      flash[:success] = 'Awesome update!'
+      redirect_to my_boxes_path
     else
       render :edit
     end
