@@ -1,11 +1,10 @@
 <% if current_user %>
   <h3>Home</h3>
-  <%= link_to 'Sign Out', signout_path %>
   <% @users.each do |user| %>
     <p>User: <%= user.name %></p>
   <% end %>
+  <%= link_to 'Sign Out', signout_path %>
 <% else %>
-  <%= link_to 'Sign In', signin_path %>
+  <%= link_to 'Twitter Sign In', "auth/twitter" %> | 
+  <%= link_to 'Facebook Sign In', "auth/facebook" %>
 <% end %>
-
-
