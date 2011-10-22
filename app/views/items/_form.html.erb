@@ -6,6 +6,13 @@
     </div>
   </div>
   <div class="clearfix">
+    <%= f.label :collection %>
+    <div class="input">
+      <%= select :item, :box_id, Box.all.collect {|b| [b.name, b.id]} %>
+    </div>
+    
+  </div>
+  <div class="clearfix">
     <%= f.label :description %>
     <div class="input"><%= f.text_area :description, :rows => 3 %></div>
   </div>

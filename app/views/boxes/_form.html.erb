@@ -1,0 +1,22 @@
+<h2>New Collection</h2>
+
+<%= form_for @box do |f| %>
+<fieldset>
+  <div class="clearfix">
+    <%= f.label :name %>
+    <div class="input">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :category %>
+    <div class="input">
+      <%= f.text_field :category %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Submit', :class => 'btn primary' %>
+    <%= link_to 'Cancel', boxes_path, :class => 'btn' %>
+  </div>
+</fieldset>
+<% end %>

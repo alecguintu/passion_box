@@ -9,7 +9,7 @@ PassionBox::Application.routes.draw do
   match '/auth/failure' => 'sessions#failure'
   
   resources :items
-  resources :box
+  resources :boxes
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

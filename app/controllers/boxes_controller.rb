@@ -1,4 +1,4 @@
-class BoxController < ApplicationController
+class BoxesController < ApplicationController
   def index
     @boxes = current_user.box
   end

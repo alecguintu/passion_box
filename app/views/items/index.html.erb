@@ -2,7 +2,6 @@
 <%= link_to 'Create', new_item_path %><br>
 
 <% @items.each do |i| %>
-  Item <%= i.user.name %> |
   <%= i.title %> |
   <%= link_to 'Edit', edit_item_path(i) %> |
   <%= link_to '(delete)', item_path(i), :method => :delete, :confirm => "yousure?" %><br>

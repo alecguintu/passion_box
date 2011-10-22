@@ -9,4 +9,6 @@ class Box
   has_many    :user_items
   
   attr_accessible :name, :category
+  
+  validates_presence_of :name
 end
