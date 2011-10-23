@@ -1,26 +1,38 @@
-<h2>Editing <%= @box.name %></h2>
+<div class="container">
+  <div class="content">
+    <div class="page-header">
+      <% if current_user == @box.user_id %>
+      <div class="quick-actions">
+        <%= link_to 'Edit', edit_info_box_path(@box), :class => 'btn' %>
+        <%= link_to 'Add Item', new_item_path(:id => @box.id), :class => 'btn info' %>
+      </div>
+      <% end %>
+      <h1>Editing <%= @box.name %></h1>
+    </div>
+    <div class="row">
+      <p>Category : <%= @box.category.name unless @box.category.nil? %></p>
+      
+      <% unless @box_items.blank? %>
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Tags</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @box_items.each do |item| %>
+            <tr>
+              <td><%= link_to item.title, item_path(item) %></td>
+              <td><%= item.tags_to_s %></td>
+              <td><%= link_to 'Edit', edit_item_path(item) %> | <%= link_to '(delete)', item_path(item), :method => :delete, :confirm => "yousure?" %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
 
-<p>Category : <%= @box.category.name unless @box.category.nil? %></p>
-
-<% unless @box_items.blank? %>
-  <table class="zebra-striped">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Tags</th>
-        <th>&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @box_items.each do |item| %>
-      <tr>
-        <td><%= link_to item.title, item_path(item) %></td>
-        <td><%= item.tags_to_s %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %> | <%= link_to '(delete)', item_path(item), :method => :delete, :confirm => "yousure?" %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-<% end %>
-
-<p><%= link_to "Add an Item", new_item_path(:id => @box.id) %></p>
+</div>

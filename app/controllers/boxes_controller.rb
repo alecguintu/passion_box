@@ -27,10 +27,15 @@ class BoxesController < ApplicationController
   end
 
   def show
-    @box = current_user.boxes.where(:_id => params[:id]).first
+    @box = Box.find(params[:id])
   end
   
   def edit
+    @box = Box.find(params[:id])
+    @box_items = @box.user_items
+  end
+  
+  def edit_info
     @box = Box.find(params[:id])
     @box_items = @box.user_items unless @box.nil?
   end
@@ -39,7 +44,7 @@ class BoxesController < ApplicationController
     @box = Box.find(params[:id])
     if @box.update_attributes(params[:box])
       flash[:success] = 'Awesome update!'
-      redirect_to my_boxes_path
+      redirect_to box_path(@box)
     else
       render :edit
     end

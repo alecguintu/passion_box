@@ -15,6 +15,7 @@ PassionBox::Application.routes.draw do
   resources :boxes do 
     member do
       get :gallery
+      get :edit_info
     end
   end
   match 'boxes/my_boxes' => 'boxes#my_boxes', :via =>:get, :as => :my_boxes
