@@ -1,4 +1,7 @@
 <h1><%= @item.title %></h1>
 
-<p><%= @item.description %></p>
+<p>
+  <%= image_tag @item.image_url %>
+  <%= @item.description %>
+</p>
 <p><%= @item.tags_to_s %></p>

@@ -1,5 +1,5 @@
 <h1>Edit Items</h1>
 
-<%= form_for @item, :url => item_path(@item) do |f| %>
+<%= form_for @item, :url => item_path(@item), :html => {:multipart => true} do |f| %>
   <%= render :partial => 'form', :locals => {:f => f} %>
 <% end %>

@@ -1,5 +1,7 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
+  
   ROLES = ['User', 'Curator', 'Admin']
   USER, CURATOR, ADMIN = ROLES
   
