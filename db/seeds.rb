@@ -8,7 +8,8 @@
 # puts 'EMPTY THE MONGODB DATABASE'
 # Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 
-@user = User.create(:name => 'dreinavarro', :provider => 'twitter', :role => 'user', :uid => '13419462')
+@user = User.create(:name => 'dreinavarro', :provider => 'twitter', :role => 'User', :uid => '13419462')
+@user2 = User.create(:name => 'Alec Guintu', :provider => 'twitter', :role => 'User', :uid => '395766050')
 
 @c1 = Category.create(:name => 'Music', :image => 'music.jpg')
 Template.create(:category => @c1, :global_fields => "artist, release_date", :user_fields => "bought_from", :user => @user)
@@ -35,7 +36,12 @@ Template.create(:category => @c11, :global_fields => "artist, release_date", :us
 @c12 = Category.create(:name => 'Coke Memorabilla', :image => 'coke.jpg')
 Template.create(:category => @c12, :global_fields => "artist, release_date", :user_fields => "bought_from", :user => @user)
 
+Template.create(:category => @c1, :global_fields => "artist, release_date", :user_fields => "bought_from", :user => @user2)
+
+
 @box = Box.create(:user => @user, :category => @c2, :name => 'My Comics')
+@box2 = Box.create(:user => @user2, :category => @c1, :name => 'My Music Collection')
+
 
 UserItem.create(
   :box => @box,
@@ -52,4 +58,15 @@ UserItem.create(
   :condition => 'Mint',
   :variant => 'First edition',
   :image => 'Detective_Comics_1.jpg'
+)
+
+UserItem.create(
+  :box => @box2,
+  :category_id => @c1.id,
+  :title => 'So Long Astoria',
+  :description => 'First appearance',
+  :tags => 'awesome, blah',
+  :artist => 'Ataris',
+  :release_date => '1992',
+  :bought_from => 'Universal Records'
 )

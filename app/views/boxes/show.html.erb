@@ -1,6 +1,12 @@
 <div class="container">
   <div class="content">
     <div class="page-header">
+      <% if current_user.id == @box.user_id %>
+      <div class="quick-actions">
+        <%= link_to 'Edit Collection', edit_box_path(@box), :class => 'btn' %>
+        <%= link_to 'Add Item', new_item_path(:id => @box.id), :class => 'btn info' %>
+      </div>
+      <% end %>
       <h1><%= @box.name %><small> by <%= @box.user.name %></small></h1>
     </div>
     <div class="row">
@@ -9,10 +15,6 @@
       </div>
     </div>
   </div>
-
-  <footer>
-    <p>&copy; Company 2011</p>
-  </footer>
 
 </div> 
 <%= content_for :javascripts do %>
