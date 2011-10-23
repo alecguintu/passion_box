@@ -4,13 +4,9 @@ class BoxesController < ApplicationController
   end
   
   def my_boxes
+
   end
   
-  def show
-    @box = current_user.boxes.where(:_id => params[:id]).first
-    @box_items = @box.user_items unless @box.nil?
-  end
-
   def new
     @box = Box.new
     @box.category = Category.find(params[:category_id])
@@ -20,7 +16,7 @@ class BoxesController < ApplicationController
     @box = current_user.boxes.new(params[:box])
     if @box.save
       flash[:success] = 'Collection created yeah!'
-      redirect_to my_boxes_path
+      redirect_to box_path(@box.id)
     else
       render :new
     end
