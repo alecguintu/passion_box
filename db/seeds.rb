@@ -94,3 +94,215 @@ Item.create(
   :release_date => '1992',
   :bought_from => 'Universal Records'
 )
+
+
+UserItem.create(
+ :box => @box,
+ :category_id => @c2.id,
+ :title => 'Batgirl',
+ :description => 'Silent Running',
+ :tags => 'batgirl, dc',
+ :artist => 'Stan Lee',
+ :release_date => '2001',
+ :publisher => 'DC',
+ :issue_number => '#1',
+ :writer => 'Jim Lee',
+ :character => 'Batgirl',
+ :condition => 'Mint',
+ :variant => 'First edition',
+ :image => ' Batgirl1-a.jpg'
+)
+
+UserItem.create(
+ :box => @box,
+ :category_id => @c2.id,
+ :title => 'Batgirl',
+ :description => 'A Knight Alone',
+ :tags => 'batgirl, dc',
+ :artist => 'Stan Lee',
+ :release_date => '2001',
+ :publisher => 'DC',
+ :issue_number => '#1',
+ :writer => 'Jim Lee',
+ :character => 'Batgirl',
+ :condition => 'Mint',
+ :variant => 'First edition',
+ :image => ' Batgirl2-a.jpg'
+)
+
+UserItem.create(
+ :box => @box,
+ :category_id => @c2.id,
+ :title => 'Batgirl',
+ :description => 'Death Wish',
+ :tags => 'batgirl, dc',
+ :artist => 'Stan Lee',
+ :release_date => '2003',
+ :publisher => 'DC',
+ :issue_number => '#1',
+ :writer => 'Jim Lee',
+ :character => 'Batgirl',
+ :condition => 'Mint',
+ :variant => 'First edition',
+ :image => ' Batgirl3-a.jpg'
+)
+
+UserItem.create(
+ :box => @box,
+ :category_id => @c2.id,
+ :title => 'Batgirl',
+ :description => 'Fists of Fury',
+ :tags => 'batgirl, dc',
+ :artist => 'Stan Lee',
+ :release_date => '2004',
+ :publisher => 'DC',
+ :issue_number => '#1',
+ :writer => 'Jim Lee',
+ :character => 'Batgirl',
+ :condition => 'Mint',
+ :variant => 'First edition',
+ :image => ' Batgirl4-a.jpg'
+)
+
+UserItem.create(
+ :box => @box,
+ :category_id => @c2.id,
+ :title => 'Batgirl',
+ :description => 'Destruction/’s Daughter',
+ :tags => 'batgirl, dc',
+ :artist => 'Stan Lee',
+ :release_date => '2006',
+ :publisher => 'DC',
+ :issue_number => '#1',
+ :writer => 'Jim Lee',
+ :character => 'Batgirl',
+ :condition => 'Mint',
+ :variant => 'First edition',
+ :image => ' Batgirl6-a.jpg'
+)
+
+UserItem.create(
+ :box => @box2,
+ :category_id => @c1.id,
+ :title => 'So Long Astoria',
+ :description => 'First appearance',
+ :tags => 'awesome, blah',
+ :artist => 'Ataris',
+ :release_date => '1992',
+ :bought_from => 'Universal Records'
+ :image => 'TheAtaris.jpg'
+)
+
+UserItem.create(
+ :box => @box2,
+ :category_id => @c1.id,
+ :title => 'Led Zeppelin',
+ :description => 'First album',
+ :tags => 'awesome, rock',
+ :artist => 'Led Zeppelin',
+ :release_date => '1969',
+ :bought_from => 'Unknown'
+ :image => 'LedZeppelin-LedZeppelin-1969.jpg'
+)
+
+UserItem.create(
+ :box => @box2,
+ :category_id => @c1.id,
+ :title => 'Led Zeppelin',
+ :description => 'Third album',
+ :tags => 'awesome, rock',
+ :artist => 'Led Zeppelin',
+ :release_date => '1970',
+ :bought_from => 'Unknown'
+ :image => 'LedZeppelin-LedZeppelinIII-1970.jpg'
+)
+
+UserItem.create(
+ :box => @box2,
+ :category_id => @c1.id,
+ :title => '8701',
+ :description => 'Second album, MY FAVORITE',
+ :tags => 'awesome, rock',
+ :artist => 'Usher',
+ :release_date => '2001',
+ :bought_from => 'Unknown'
+ :image => 'Usher-8701-2001.jpg'
+)
+
+UserItem.create(
+ :box => @box2,
+ :category_id => @c1.id,
+ :title => 'The Fame',
+ :description => 'First Album',
+ :tags => 'pop, dance',
+ :artist => 'Lady Gaga',
+ :release_date => '2008',
+ :bought_from => 'Unknown'
+ :image => 'LadyGaga-The_Fame-2008.jpg'
+)
+
+UserItem.create(
+ :box => @box2,
+ :category_id => @c1.id,
+ :title => 'The Fame Monster',
+ :description => 'Second Album',
+ :tags => 'pop, dance',
+ :artist => 'Lady Gaga',
+ :release_date => '2009',
+ :bought_from => 'Unknown'
+ :image => 'LadyGaga-TheFameMonster-2009.jpg'
+)
+
+UserItem.create(
+ :box => @box2,
+ :category_id => @c1.id,
+ :title => 'Born This Way',
+ :description => 'Third Album',
+ :tags => 'pop, dance',
+ :artist => 'Lady Gaga',
+ :release_date => '2011',
+ :bought_from => 'Unknown'
+ :image => 'LadyGaga-Born_This_Way-2011.jpg'
+)
+
+UserItem.create(
+ :box => @box3,
+ :category_id => @c6.id,
+ :title => 'Kate Upton',
+ :description => 'o.o',
+ :tags => models, swimsuit',
+ :name => 'Kate Upton',
+ :number => '909-987-6743',
+ :vital_stats => '36 24 32',
+ :age => '19',
+ :status => 'Single',
+ :image => 'KateUpton.jpg'
+)
+
+UserItem.create(
+ :box => @box3,
+ :category_id => @c6.id,
+ :title => 'Melanie Iglesias',
+ :description => 'o.o',
+ :tags => models, swimsuit',
+ :name => 'Melanie Iglesias',
+ :number => '909-987-4567',
+ :vital_stats => '36 24 32',
+ :age => 'unknown',
+ :status => 'Single',
+ :image => 'Melanie Iglesias.jpg'
+)
+
+UserItem.create(
+ :box => @box3,
+ :category_id => @c6.id,
+ :title => 'Alyssa Miller',
+ :description => 'o.0',
+ :tags => models, swimsuit',
+ :name => ' Alyssa Miller ',
+ :number => '909-987-4567',
+ :vital_stats => '36 24 32',
+ :age => 'unknown',
+ :status => 'Single',
+ :image => 'AlyssaMiller.jpg'
+)
