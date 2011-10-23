@@ -16,6 +16,9 @@ class UserItem
   belongs_to :box
   
   # has_mongoid_attached_file :image
+
+  MY_FIELDS = ['_id', 'box_id', 'category_id', 'title', 'description', 'tags', 'image']
+
   # after_save :save_to_global_item
   
   def tags=(_tags)
@@ -25,7 +28,6 @@ class UserItem
   def tags_to_s
     self.tags.join(', ') unless self.tags.blank?
   end
-  
   # def image_url(*args)
   #   image.url(*args)
   # end
@@ -41,6 +43,10 @@ class UserItem
   # def image_file_size
   #   image_file_size
   # end
+
+  def extra_fields
+    self.attributes.keys - MY_FIELDS
+  end
   
   private
   

@@ -1,7 +1,16 @@
 <h1><%= @item.title %></h1>
 
+<<<<<<< HEAD
 <p>
   <%= image_tag @item.image_url %>
   <%= @item.description %>
 </p>
 <p><%= @item.tags_to_s %></p>
+=======
+<p><%= @item.description %></p>
+<p>Tags: <%= @item.tags_to_s %></p>
+
+<% @item.extra_fields.each do |ef| %>
+  <p><%= ef.humanize %>: <%= eval("@item.#{ef}") %></p>
+<% end %>
+>>>>>>> 1d5e497f080ef69d7218b6b610fd080c5955c66c
