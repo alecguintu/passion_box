@@ -42,7 +42,6 @@ Template.create(:category => @c1, :global_fields => "artist, release_date", :use
 @box = Box.create(:user => @user, :category => @c2, :name => 'My Comics')
 @box2 = Box.create(:user => @user2, :category => @c1, :name => 'My Music Collection')
 
-
 UserItem.create(
   :box => @box,
   :category_id => @c2.id,
