@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# puts 'EMPTY THE MONGODB DATABASE'
-# Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
+puts 'EMPTY THE MONGODB DATABASE'
+Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 
 @user = User.create(:name => 'dreinavarro', :provider => 'twitter', :role => 'User', :uid => '13419462')
 @user2 = User.create(:name => 'Alec Guintu', :provider => 'twitter', :role => 'User', :uid => '395766050')
@@ -40,7 +40,8 @@ Template.create(:category => @c1, :global_fields => "artist, release_date", :use
 
 
 @box = Box.create(:user => @user, :category => @c2, :name => 'My Comics')
-@box2 = Box.create(:user => @user2, :category => @c1, :name => 'My Music Collection')
+@box2 = Box.create(:user => @user, :category => @c1, :name => 'My Music Collection')
+@box3 = Box.create(:user => @user, :category => @c6, :name => 'My Girl')
 
 UserItem.create(
   :box => @box,
@@ -168,7 +169,7 @@ UserItem.create(
  :box => @box,
  :category_id => @c2.id,
  :title => 'Batgirl',
- :description => 'Destruction/’s Daughter',
+ :description => 'Destruction\'s Daughter',
  :tags => 'batgirl, dc',
  :artist => 'Stan Lee',
  :release_date => '2006',
@@ -189,7 +190,7 @@ UserItem.create(
  :tags => 'awesome, blah',
  :artist => 'Ataris',
  :release_date => '1992',
- :bought_from => 'Universal Records'
+ :bought_from => 'Universal Records',
  :image => 'TheAtaris.jpg'
 )
 
@@ -201,7 +202,7 @@ UserItem.create(
  :tags => 'awesome, rock',
  :artist => 'Led Zeppelin',
  :release_date => '1969',
- :bought_from => 'Unknown'
+ :bought_from => 'Unknown',
  :image => 'LedZeppelin-LedZeppelin-1969.jpg'
 )
 
@@ -213,7 +214,7 @@ UserItem.create(
  :tags => 'awesome, rock',
  :artist => 'Led Zeppelin',
  :release_date => '1970',
- :bought_from => 'Unknown'
+ :bought_from => 'Unknown',
  :image => 'LedZeppelin-LedZeppelinIII-1970.jpg'
 )
 
@@ -225,7 +226,7 @@ UserItem.create(
  :tags => 'awesome, rock',
  :artist => 'Usher',
  :release_date => '2001',
- :bought_from => 'Unknown'
+ :bought_from => 'Unknown',
  :image => 'Usher-8701-2001.jpg'
 )
 
@@ -237,7 +238,7 @@ UserItem.create(
  :tags => 'pop, dance',
  :artist => 'Lady Gaga',
  :release_date => '2008',
- :bought_from => 'Unknown'
+ :bought_from => 'Unknown',
  :image => 'LadyGaga-The_Fame-2008.jpg'
 )
 
@@ -249,7 +250,7 @@ UserItem.create(
  :tags => 'pop, dance',
  :artist => 'Lady Gaga',
  :release_date => '2009',
- :bought_from => 'Unknown'
+ :bought_from => 'Unknown',
  :image => 'LadyGaga-TheFameMonster-2009.jpg'
 )
 
@@ -261,7 +262,7 @@ UserItem.create(
  :tags => 'pop, dance',
  :artist => 'Lady Gaga',
  :release_date => '2011',
- :bought_from => 'Unknown'
+ :bought_from => 'Unknown',
  :image => 'LadyGaga-Born_This_Way-2011.jpg'
 )
 
@@ -270,7 +271,7 @@ UserItem.create(
  :category_id => @c6.id,
  :title => 'Kate Upton',
  :description => 'o.o',
- :tags => models, swimsuit',
+ :tags => 'models, swimsuit',
  :name => 'Kate Upton',
  :number => '909-987-6743',
  :vital_stats => '36 24 32',
@@ -284,13 +285,13 @@ UserItem.create(
  :category_id => @c6.id,
  :title => 'Melanie Iglesias',
  :description => 'o.o',
- :tags => models, swimsuit',
+ :tags => 'models, swimsuit',
  :name => 'Melanie Iglesias',
  :number => '909-987-4567',
  :vital_stats => '36 24 32',
  :age => 'unknown',
  :status => 'Single',
- :image => 'Melanie Iglesias.jpg'
+ :image => 'MelanieIglesias.jpg'
 )
 
 UserItem.create(
@@ -298,7 +299,7 @@ UserItem.create(
  :category_id => @c6.id,
  :title => 'Alyssa Miller',
  :description => 'o.0',
- :tags => models, swimsuit',
+ :tags => 'models, swimsuit',
  :name => ' Alyssa Miller ',
  :number => '909-987-4567',
  :vital_stats => '36 24 32',
