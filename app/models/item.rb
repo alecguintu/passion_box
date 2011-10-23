@@ -1,5 +1,6 @@
 class Item
   include Mongoid::Document
+  include Mongoid::Paperclip
   
   field :title
   field :description

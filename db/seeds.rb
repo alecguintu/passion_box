@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-puts 'EMPTY THE MONGODB DATABASE'
-Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
+# puts 'EMPTY THE MONGODB DATABASE'
+# Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 
 @user = User.create(:name => 'dreinavarro', :provider => 'twitter', :role => 'User', :uid => '13419462')
 @user2 = User.create(:name => 'Alec Guintu', :provider => 'twitter', :role => 'User', :uid => '395766050')
@@ -84,6 +84,7 @@ UserItem.create(
   :release_date => '1992',
   :bought_from => 'Universal Records'
 )
+
 Item.create(
   :category_id => @c1.id,
   :title => 'So Long Astoria',

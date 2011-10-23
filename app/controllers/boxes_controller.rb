@@ -4,13 +4,9 @@ class BoxesController < ApplicationController
   end
   
   def my_boxes
+
   end
   
-  def show
-    @box = current_user.boxes.where(:_id => params[:id]).first
-    @box_items = @box.user_items unless @box.nil?
-  end
-
   def new
     @box = Box.new
     @box.category = Category.find(params[:category_id])
