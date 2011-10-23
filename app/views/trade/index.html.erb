@@ -1,0 +1,25 @@
+<h1>Trade</h1>
+<form>
+<fieldset>
+  <div class="clearfix">
+    <div class="input">
+      <img src="<%= image_path('girls.jpg') %>" />
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= label 'asd', 'Item' %>
+    <div class="input">
+      <%= select 'blah', 'blah', @my_items.collect {|i| [i.title, i.id]} %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= label 'asd', 'Note' %>
+    <div class="input"><%= text_area 'boo', 'far', :rows => 3, :cols => 20  %></div>
+  </div>
+  
+  <div class="actions">
+    <%= button_tag 'Submit', :class => 'btn primary' %>
+    <%= link_to 'Cancel', '#', :class => 'btn' %>
+  </div>
+</fieldset>
+</form>
