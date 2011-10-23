@@ -3,7 +3,7 @@
   <style type="text/css">
     #s3slider { 
        width: 660px; /* important to be same as image width */ 
-       height: 660px; /* important to be same as image height */
+       height: 550px; /* important to be same as image height */
        position: relative; /* important */
        overflow: hidden; /* important */
     }
@@ -60,18 +60,8 @@
         <div id="s3slider">
           <ul id="s3sliderContent">
             <li class="s3sliderImage">
-              <img src="http://lorempixel.com/660/300/technics/1" />
+              <%= image_tag 'Detective_Comics_1.jpg'%>
             </li>
-            <li class="s3sliderImage">
-              <img src="http://lorempixel.com/660/300/technics/2" />
-            </li>
-            <li class="s3sliderImage">
-              <img src="http://lorempixel.com/660/300/technics/3" />
-            </li>
-            <li class="s3sliderImage">
-              <img src="http://lorempixel.com/660/300/technics/4" />
-            </li>
-
             <div class="clear s3sliderImage"></div>
           </ul>
         </div>
@@ -89,14 +79,13 @@
         
         <h3>People who need this item</h3>
         <ul>
-          <li><a href="#">Drei</a>(Comics)</li>
+          <li>
+            <%= link_to "Jay", trade_path %>(Comics) %>
+          </li>
       </div>
     </div>
   </div>
 
-  <footer>
-    <p>&copy; Company 2011</p>
-  </footer>
 </div>
 
 <%= content_for :javascripts do %>
