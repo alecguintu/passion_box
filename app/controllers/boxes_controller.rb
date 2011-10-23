@@ -20,7 +20,8 @@ class BoxesController < ApplicationController
     @box = current_user.boxes.new(params[:box])
     if @box.save
       flash[:success] = 'Collection created yeah!'
-      redirect_to my_boxes_path
+      # redirect_to my_boxes_path
+      redirect_to @box
     else
       render :new
     end
