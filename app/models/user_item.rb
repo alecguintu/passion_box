@@ -10,6 +10,7 @@ class UserItem
   
   belongs_to :box
   
+  MY_FIELDS = ['_id', 'box_id', 'category_id', 'title', 'description', 'tags', 'image']
   # after_save :save_to_global_item
   
   def tags=(_tags)
@@ -18,6 +19,10 @@ class UserItem
   
   def tags_to_s
     self.tags.join(', ') unless self.tags.blank?
+  end
+  
+  def extra_fields
+    self.attributes.keys - MY_FIELDS
   end
   
   private

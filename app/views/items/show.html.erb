@@ -1,4 +1,8 @@
 <h1><%= @item.title %></h1>
 
 <p><%= @item.description %></p>
-<p><%= @item.tags_to_s %></p>
+<p>Tags: <%= @item.tags_to_s %></p>
+
+<% @item.extra_fields.each do |ef| %>
+  <p><%= ef.humanize %>: <%= eval("@item.#{ef}") %></p>
+<% end %>

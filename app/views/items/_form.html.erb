@@ -16,6 +16,7 @@
       <%= f.text_field :tags, :value => @item.tags_to_s %>
     </div>
   </div>
+  
   <% @template.global_fields.each do |gf| %>
     <div class="clearfix">
       <label for="<%= "item_#{gf}" %>"><%= gf.humanize %></label>
