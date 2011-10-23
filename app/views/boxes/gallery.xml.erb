@@ -2,7 +2,7 @@
   <photos>
     <%= @box.user_items.each do |item| %>
       <% global_item = Item.where(:title => item.title).first %>
-      <photo imageurl="<%= image_path(item.image_url) %>" linkurl="<%= item_path(global_item) %>">
+      <photo imageurl="<%= image_path(item.image) %>" linkurl="<%= item_path(global_item) %>">
       <title><%= item.title %></title>
       <description><![CDATA[
         <% @template.global_fields.each do |gf| %>

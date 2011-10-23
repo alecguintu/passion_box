@@ -1,4 +1,6 @@
 PassionBox::Application.routes.draw do
+  get "trade/index"
+
   root :to => "home#index"
 
   match 'users/apply_user' => 'users#change_role', :via => :post, :as => :change_to_user, :role => User::USER
@@ -22,6 +24,7 @@ PassionBox::Application.routes.draw do
   
   resources :categories
   resources :templates
+  resources :trade
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

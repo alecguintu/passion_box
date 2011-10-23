@@ -29,13 +29,6 @@
       <div class="input"><%= text_field_tag "user_item[#{uf}]", (eval("@item.#{uf}") unless @item.new?) %></div>
     </div>
   <% end %>
-  <div class="clearfix">
-    <div class="input">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-    </div>
-  </div>
-  
   <div class="actions">
     <%= f.submit 'Submit', :class => 'btn primary' %>
     <%= link_to 'Cancel', items_path, :class => 'btn' %>
